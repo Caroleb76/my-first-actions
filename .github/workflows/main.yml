@@ -1,0 +1,29 @@
+# .github/workflows/main.yaml
+name: Déploiement automatique
+
+on:
+  push:
+    branches:
+      - main # Le workflow se déclenchera uniquement sur les pushs vers 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v3
+
+      - name: Afficher un message personnalisé
+        run: echo "Hello, GitHub Actions !"
+
+      - name: Installer Node.js (exemple si c’est un projet JS)
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Lancer les tests
+        run: npm test
