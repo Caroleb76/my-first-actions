@@ -23,3 +23,5 @@ jobs:
     steps:
       - name: Afficher la variable
         run: echo "${{ env.MY_VARIABLE }}"
+      - name: Utiliser le secret (masqué dans les logs)
+        run: echo "${{ secrets.MY_SECRET }}"
