@@ -50,6 +50,15 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
 
+      - name: Run Tests
+        run: npx jest --coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: Caroleb76/my-first-actions
+
   second_job:
     runs-on: ubuntu-latest
     needs: test # Ce job s’exécute seulement si 'test' réussit
