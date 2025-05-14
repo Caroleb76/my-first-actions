@@ -66,12 +66,9 @@ jobs:
       - name: Afficher un message
         run: echo "Second job running"
 
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Linter
-        uses: github/super-linter@v6
+      - name: GitHub Super-Linter
+        uses: github/super-linter@v4
         env:
+          VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
