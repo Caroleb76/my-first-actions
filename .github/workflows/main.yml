@@ -65,3 +65,6 @@ jobs:
     steps:
       - name: Afficher un message
         run: echo "Second job running"
+
+      - name: Linting Action
+        uses: ryanclark/lint-action@v1.15.0
