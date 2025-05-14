@@ -66,5 +66,12 @@ jobs:
       - name: Afficher un message
         run: echo "Second job running"
 
-      - name: Linting Action
-        uses: ryanclark/lint-action@v1.15.0
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Linter
+        uses: github/super-linter@v6
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
